@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-offwhite text-charcoal font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-headline font-bold text-navy;
+  }
+
+  a {
+    @apply text-navy;
+  }
+
+  /* Consistent, visible focus states for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-brass ring-offset-2 ring-offset-offwhite;
+  }
+}
+
+@layer components {
+  /* Page-width wrapper used on every section */
+  .container-vm {
+    @apply mx-auto w-full max-w-container-vm px-5 sm:px-8;
+  }
+
+  /* Standard content/editorial card used across discounts, articles, benefits, etc. */
+  .card-vm {
+    @apply rounded-vm border border-navy-100 bg-offwhite-100 p-6 shadow-vm-card transition-shadow duration-200 hover:shadow-vm-card-hover;
+  }
+
+  /* Primary CTA — brass/navy, used for the main conversion actions */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-vm bg-navy px-6 py-3 text-sm font-semibold text-offwhite-100 transition-colors duration-150 hover:bg-navy-600 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  /* Secondary CTA — outlined, used for lower-emphasis actions (e.g. mortgage CTA in header) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-vm border border-navy px-6 py-3 text-sm font-semibold text-navy transition-colors duration-150 hover:bg-navy hover:text-offwhite-100 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  /* Tertiary / low-emphasis text link button */
+  .btn-tertiary {
+    @apply inline-flex items-center justify-center gap-1 text-sm font-semibold text-green underline-offset-4 hover:underline;
+  }
+
+  /* Small label used for eyebrow text above headings */
+  .eyebrow-vm {
+    @apply text-xs font-bold uppercase tracking-widest text-green;
+  }
+}
