@@ -273,8 +273,8 @@ const CONFIG = {
   if(CONFIG.VIDEO_SRC){
     var v=document.createElement("video");
     v.src=CONFIG.VIDEO_SRC; if(CONFIG.VIDEO_POSTER) v.poster=CONFIG.VIDEO_POSTER;
-    v.controls=true; v.playsInline=true; v.preload="metadata"; v.setAttribute("aria-label","Josiah Diaz explains the VA loan");
-    vb.appendChild(v); document.getElementById("videoPh").remove();
+    v.muted=true; v.autoplay=true; v.loop=true; v.playsInline=true; v.preload="auto"; v.setAttribute("aria-label","Josiah Diaz explains the VA loan");
+    vb.appendChild(v); document.getElementById("videoPh").remove(); var sb=document.createElement("button"); sb.type="button"; sb.textContent="Tap for sound"; sb.setAttribute("style","position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:2;font:600 .85rem Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;background:#b9a27a;color:#121211;border:0;padding:14px 22px;cursor:pointer"); sb.onclick=function(){v.loop=false;v.currentTime=0;v.muted=false;v.controls=true;v.play();sb.remove()}; vb.appendChild(sb); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){sb.textContent="Tap to play"});
   }
   if(CONFIG.PHOTO_CURRENT){
     var i=document.createElement("img"); i.src=CONFIG.PHOTO_CURRENT; i.alt="Josiah Diaz"; i.loading="lazy";
